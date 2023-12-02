@@ -1,6 +1,8 @@
 # ini2buff
 ## Parse INI format data in buffer. A very simple and easy to use util.
 
+Receive INI format data from server, it can direct to parse in buffer, modify, then send back to server, is not nessisary save to local file.
+
 ## How to use ini2buff:
 
 1. Load your ini file to buffer:
