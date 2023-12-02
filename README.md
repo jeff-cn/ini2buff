@@ -1,43 +1,53 @@
 # ini2buff
-Parse INI format data in buffer. A very simple and easy to use util.
+## Parse INI format data in buffer. A very simple and easy to use util.
 
 ## How to use ini2buff:
 
 1. Load your ini file to buffer:
 
-	char* inibuf = load2buffer("test.ini");
+	`char* inibuf = load2buffer("test.ini");`
 
 	or receive your ini format data from network
 
-	char* inibuf = ...
+	`char* inibuf = ...`
 
 2. Operation on your ini format data:
 
 	1) Get value of key
-	   char* value = get_inival(inibuf, "common", "testkey");
 
-	2) Set value of key (if section or key not exist, will create it)
-	   set_inival(inibuf, "common", "server_port", "54321");
+	  `char* value = get_inival(inibuf, "common", "testkey");`
 
-	3) Del key and value 
-	   del_key(inibuf, "device", "config_api");
+	3) Set value of key (if section or key not exist, will create it)
 
-	4) Del the whole setion
-	   del_section(inibuf, "device");
+	  `set_inival(inibuf, "common", "server_port", "54321");`
+
+	5) Del key and value
+
+	  `del_key(inibuf, "device", "config_api");`
+
+	7) Del the whole setion
+
+	  `del_section(inibuf, "device");`
 
 3. Write ini format data in buffer to file
-	size_t rs = write2file("test.ini", inibuf);  
+   
+	`size_t rs = write2file("test.ini", inibuf);  `
 
 4. Free buffer of the ini format data
-	free_all();
+   
+	`free_all();`
 
 5. How to build the test file (test/test_main.c)
-	cd test/
-	gcc -c test_main.c ../ini2buff.c ../utils_string.c
-	gcc test_main.o ini2buff.o utils_string.o -o test
-	./test
+	> cd test/
+ 
+	> gcc -c test_main.c ../ini2buff.c ../utils_string.c
+ 
+	> gcc test_main.o ini2buff.o utils_string.o -o test
+ 
+	> ./test
 
-	the output data of test:
+ ------------------------------
+	The output data of test:
 
 	----------- orig data -----------
 	[common]
@@ -91,5 +101,5 @@ Parse INI format data in buffer. A very simple and easy to use util.
 	device testkey:                 testval-3
 	test1 testkey:                  testval-4
 	test2 testkey:                  testval-5
-
+	
 	write 196 bytes.
